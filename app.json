@@ -31,6 +31,12 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow LazyBus to use your location."
+        }
       ]
     ],
     "experiments": {
