@@ -53,6 +53,12 @@ const Bus = () => {
     null
   );
 
+  console.log(
+    "location",
+    location?.coords.latitude,
+    location?.coords.longitude
+  );
+
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebounce(search, 500);
   const [selectedStop, setSelectedStop] = useState<BusStop | null>(null);
@@ -60,6 +66,8 @@ const Bus = () => {
   const url = useMemo(() => {
     return `${searchBusStops}?busStopName=${debouncedSearch}`;
   }, [debouncedSearch]);
+
+  console.log("url", url);
 
   const [fetchData, { data, loading, error }] = useFetch<{
     results: BusStop[];
@@ -113,14 +121,14 @@ const Bus = () => {
                 icon={icons.search}
               />
             </View>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               className="p-3 mb-4 w-fit"
               onPress={() => {
                 router.navigate("/map");
               }}
             >
               <Image source={icons.map} className="w-6 h-6" />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
         {!loading &&
